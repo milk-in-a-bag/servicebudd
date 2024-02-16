@@ -7,34 +7,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="{% static 'login.css' %}">
     <title>Login page</title>
 </head>
 <body>
     <div class="title-container">
-        <h2 class="title">Sign in to ServiceBudd.</h2>
+        <h2 class="title">Sign in to <span class="service">Service</span><span class="budd">Budd.</span></h2>
+    </div>
+
+    <div class="messages">
+        {% for message in messages %}
+            <p  class="message">{{message}}</p>
+        {% endfor %}
     </div>
 
    <div class="form-container">
-        {% for message in messages %}
-            <h3>{{message}}</h3>
-        {% endfor %}
         <form action="login" method="POST">
             {% csrf_token %}
             <p>Username</p>
-            <input type="text" name="username">
+            <input type="text" name="username" class="user-input">
             <p>Password</p>
-            <input type="password" name="password"> <br>
+            <input type="password" name="password" class="user-input"> <br>
             <input type="submit" class="submit">
         </form>
    </div>
 
-   <div class="sign-up">
-        <p class="new">New to ServiceBudd.? <a href="#">Create an account</a></p>
+   <div class="sign-up-container">
+        <div class="sign-up">
+            <p class="new">New to ServiceBudd.? <a href="register">Create an account</a></p>
+        </div>
    </div>    
 </body>
 </html>

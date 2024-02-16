@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-from django.http import HttpResponse
+from .models import ServiceProvider
 
 # Create your views here.
 
 def index(request):
-    return HttpResponse('<h1>Hello World</h1>')
+    return render(request, 'index.html')
 
 def register(request):
     if request.method == 'POST':
@@ -48,3 +48,8 @@ def login(request):
 
     else:
         return render(request, 'login.html')
+    
+def search(request, cat):
+    service = ServiceProvider.objects.filter(category__iexact=cat)
+    context = {'category': cat, 'service': service}
+    return render(request, 'search.html', context)
