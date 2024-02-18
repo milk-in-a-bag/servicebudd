@@ -4,7 +4,6 @@
     box-sizing: border-box;
     font-family: 'Poppins', sans-serif;
     scroll-behavior: smooth;
-    overflow: hidden;
 }
 
 body{
@@ -18,6 +17,18 @@ body{
 .nav{
     padding: 0 50px;
     height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.search{
+    margin: 0 auto;
+    display: flex;
+}
+
+.submit{
+    display: inline;
 }
 
 .side-bar{
@@ -54,7 +65,7 @@ p, h1, h2, h3{
     border-radius: 5px;
     cursor: pointer;
     display: inline-block;
-    margin: 5px;
+    margin: 5px 5px 0 0;
 }
 
 .content{

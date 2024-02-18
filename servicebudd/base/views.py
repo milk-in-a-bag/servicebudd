@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from .models import ServiceProvider
+from .forms import ServiceProvidersNameFilterForm
 
 # Create your views here.
 
@@ -50,6 +51,27 @@ def login(request):
         return render(request, 'login.html')
     
 def search(request, cat):
+
     service = ServiceProvider.objects.filter(category__iexact=cat)
-    context = {'category': cat, 'service': service}
+
+    context = {
+        'category': cat, 
+        'form': ServiceProvidersNameFilterForm(),
+        'service': service,
+    }
+
     return render(request, 'search.html', context)
+
+def result(request, cat, name):
+    name = request.GET.get('name')
+    spots = ServiceProvider.objects.all()
+
+    if name:
+        spots = spots.filter(name__icontains=name)
+
+    context = {
+        'spots': spots,
+        'category': cat,
+    }
+
+    return render(request, 'result.html', context)
