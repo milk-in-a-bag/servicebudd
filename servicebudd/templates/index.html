@@ -2,235 +2,244 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/78ec385741.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static './css/style.css' %}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/78ec385741.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static './css/style.css' %}" />
     <title>Home</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="nav-wrapper">
-        <div class="nav-bar">
-            <div class="left-links">
-                <div class="logo">
-                    <h2>ServiceBudd.</h2>
-                </div>
-                <div class="other-links">
-                    <div class="discover">
-                        <a href="#">Discover</a>
-                    </div>
-                    <div class="explore">
-                        <a href="#">Explore</a>
-                    </div>
-                    <div class="browse">
-                        <a href="#">Browse</a>
-                    </div>
-                </div>
+      <div class="nav-bar">
+        <div class="left-links">
+          <div class="logo">
+            <h2>ServiceBudd.</h2>
+          </div>
+          <div class="other-links">
+            <div class="discover">
+              <a href="#">Discover</a>
             </div>
-            <div class="right-links">
-                <button class="get-started">Get started</button>
-                <button class="login"><a href="login">Sign in</a></button>
+            <div class="explore">
+              <a href="#">Explore</a>
             </div>
+            <div class="browse">
+              <a href="#">Browse</a>
+            </div>
+          </div>
         </div>
+        <div class="right-links">
+          <button class="get-started">Get started</button>
+          <button class="login"><a href="login">Sign in</a></button>
+        </div>
+      </div>
     </div>
 
     <div class="image-wrapper">
-        <div class="bg-image">
-            <div class="text-wrapper">
-               <div class="text">
-                <h2 class="intro-text">Find the perfect service for you</h2>
-                <h3 class="intro-text">Over 1 million plus services await you</h3>
-               </div>
-            </div>
+      <div class="bg-image">
+        <div class="text-wrapper">
+          <div class="text">
+            <h2 class="intro-text">Find the perfect service for you</h2>
+            <h3 class="intro-text">Over 1 million plus services await you</h3>
+          </div>
         </div>
+      </div>
     </div>
 
     <div class="filter-wrapper">
-        <div class="filter">
-            <div class="location">
-                <h4 class="filter-header">Location</h4>
-                <p class="filter-paragraph">Find the nearest service</p>
-            </div>
-            <div class="date">
-                <h4 class="filter-header">Date</h4>
-                <p class="filter-paragraph">Schedule a service</p>
-            </div>
-            <div class="budget">
-                <h4 class="filter-header">Budget</h4>
-                <p class="filter-paragraph">How much would you like to spend?</p>
-            </div>
-            <div class="go-btn">
-                <i class="fa-solid fa-arrow-right"></i>
-            </div>
+      <div class="filter">
+        <div class="location">
+          <h4 class="filter-header">Location</h4>
+          <p class="filter-paragraph">Find the nearest service</p>
         </div>
+        <div class="date">
+          <h4 class="filter-header">Date</h4>
+          <p class="filter-paragraph">Schedule a service</p>
+        </div>
+        <div class="budget">
+          <h4 class="filter-header">Budget</h4>
+          <p class="filter-paragraph">How much would you like to spend?</p>
+        </div>
+        <div class="go-btn">
+          <i class="fa-solid fa-arrow-right"></i>
+        </div>
+      </div>
     </div>
 
     <div class="categories-wrapper">
-        <div class="categories">
-            <div class="categories-heading">
-                <h4>Popular Service categories</h4>
-            </div>
-            <div class="services">
-                <a href="{% url 'search' cat='dining' %}" class="food">
-                    <p>Food & drink</p>
-                </a>
-                <a href="{% url 'search' cat='dining' %}" class="travel">
-                    <p>Travel & adventure</p>
-                </a>
-                <a href="{% url 'search' cat='dining' %}" class="home">
-                    <p>Home services</p>
-                </a>
-                <a href="{% url 'search' cat='health' %}" class="health">
-                    <p>Health & fitness</p>
-                </a>
-                <a href="{% url 'search' cat='leisure' %}" class="leisure">
-                    <p>Leisure & sport</p>
-                </a>
-                <a href="{% url 'search' cat='dining' %}" class="transport">
-                    <p>Transport</p>    
-                </a>
-            </div>
+      <div class="categories">
+        <div class="categories-heading">
+          <h4>Popular Service categories</h4>
         </div>
+        <div class="services">
+          <a href="{% url 'categories' cat='dining' %}" class="food">
+            <p>Food & drink</p>
+          </a>
+          <a href="{% url 'categories' cat='dining' %}" class="travel">
+            <p>Travel & adventure</p>
+          </a>
+          <a href="{% url 'categories' cat='dining' %}" class="home">
+            <p>Home services</p>
+          </a>
+          <a href="{% url 'categories' cat='health' %}" class="health">
+            <p>Health & fitness</p>
+          </a>
+          <a href="{% url 'categories' cat='leisure' %}" class="leisure">
+            <p>Leisure & sport</p>
+          </a>
+          <a href="{% url 'categories' cat='dining' %}" class="transport">
+            <p>Transport</p>
+          </a>
+        </div>
+      </div>
     </div>
 
     <div class="top-wrapper">
-        <div class="top">
-            <div class="top-header">
-                <h4>Top rated services</h4>
-            </div>
-            <div class="top-services">
-                <div class="john">
-                    <div class="rating">
-                        <p>4.9</p>
-                        <i class="fa-regular fa-heart"></i>
-                    </div>
-                    <p>John's plumbing</p>
-                    <div class="top-location">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <p>Kilimani, Nairobi</p>
-                    </div>
-                    <div class="price">
-                        <p>From Kes 2500</p>
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </div>
-                </div>
-                <div class="val">
-                    <div class="rating">
-                        <p>4.9</p>
-                        <i class="fa-regular fa-heart"></i>
-                    </div>
-                    <p>Val's Kitchen</p>
-                    <div class="top-location">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <p>Westlands, Nairobi</p>
-                    </div>
-                    <div class="price">
-                        <p>From Kes 2500</p>
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </div>
-                </div>
-                <div class="mike">
-                    <div class="rating">
-                        <p>4.9</p>
-                        <i class="fa-regular fa-heart"></i>
-                    </div>
-                    <p>Mike's electricals</p>
-                    <div class="top-location">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <p>Rongai, Kajiado</p>
-                    </div>
-                    <div class="price">
-                        <p>From Kes 2500</p>
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </div>
-                </div>
-                <div class="liquor">
-                    <div class="rating">
-                        <p>4.9</p>
-                        <i class="fa-regular fa-heart"></i>
-                    </div>
-                    <p>De'liqueur store</p>
-                    <div class="top-location">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <p>Ruai, Nairobi</p>
-                    </div>
-                    <div class="price">
-                        <p>From Kes 2500</p>
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </div>
-                </div>
-                <div class="emma">
-                    <div class="rating">
-                        <p>4.9</p>
-                        <i class="fa-regular fa-heart"></i>
-                    </div>
-                    <p>Emma's cleaning</p>
-                    <div class="top-location">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <p>Langata, Nairobi</p>
-                    </div>
-                    <div class="price">
-                        <p>From Kes 2500</p>
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </div>
-                </div>
-                <div class="sam">
-                    <div class="rating">
-                        <p>4.9</p>
-                        <i class="fa-regular fa-heart"></i>
-                    </div>
-                    <p>Sam's moving </p>
-                    <div class="top-location">
-                        <i class="fa-solid fa-location-dot"></i>
-                        <p>Buruburu, Nairobi</p>
-                    </div>
-                    <div class="price">
-                        <p>From Kes 2500</p>
-                        <i class="fa-solid fa-chevron-right"></i>
-                    </div>
-                </div>
-            </div>
+      <div class="top">
+        <div class="top-header">
+          <h4>Top rated services</h4>
         </div>
+        <div class="top-services">
+          <div class="john">
+            <div class="rating">
+              <p>4.9</p>
+              <i class="fa-regular fa-heart"></i>
+            </div>
+            <p>John's plumbing</p>
+            <div class="top-location">
+              <i class="fa-solid fa-location-dot"></i>
+              <p>Kilimani, Nairobi</p>
+            </div>
+            <div class="price">
+              <p>From Kes 2500</p>
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </div>
+          <div class="val">
+            <div class="rating">
+              <p>4.9</p>
+              <i class="fa-regular fa-heart"></i>
+            </div>
+            <p>Val's Kitchen</p>
+            <div class="top-location">
+              <i class="fa-solid fa-location-dot"></i>
+              <p>Westlands, Nairobi</p>
+            </div>
+            <div class="price">
+              <p>From Kes 2500</p>
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </div>
+          <div class="mike">
+            <div class="rating">
+              <p>4.9</p>
+              <i class="fa-regular fa-heart"></i>
+            </div>
+            <p>Mike's electricals</p>
+            <div class="top-location">
+              <i class="fa-solid fa-location-dot"></i>
+              <p>Rongai, Kajiado</p>
+            </div>
+            <div class="price">
+              <p>From Kes 2500</p>
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </div>
+          <div class="liquor">
+            <div class="rating">
+              <p>4.9</p>
+              <i class="fa-regular fa-heart"></i>
+            </div>
+            <p>De'liqueur store</p>
+            <div class="top-location">
+              <i class="fa-solid fa-location-dot"></i>
+              <p>Ruai, Nairobi</p>
+            </div>
+            <div class="price">
+              <p>From Kes 2500</p>
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </div>
+          <div class="emma">
+            <div class="rating">
+              <p>4.9</p>
+              <i class="fa-regular fa-heart"></i>
+            </div>
+            <p>Emma's cleaning</p>
+            <div class="top-location">
+              <i class="fa-solid fa-location-dot"></i>
+              <p>Langata, Nairobi</p>
+            </div>
+            <div class="price">
+              <p>From Kes 2500</p>
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </div>
+          <div class="sam">
+            <div class="rating">
+              <p>4.9</p>
+              <i class="fa-regular fa-heart"></i>
+            </div>
+            <p>Sam's moving</p>
+            <div class="top-location">
+              <i class="fa-solid fa-location-dot"></i>
+              <p>Buruburu, Nairobi</p>
+            </div>
+            <div class="price">
+              <p>From Kes 2500</p>
+              <i class="fa-solid fa-chevron-right"></i>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <div class="discount-wrapper">
-        <div class="discount">
-            <div class="discount-left">
-                <div class="discount-icon">
-                    <i class="fa-solid fa-hand-holding-dollar"></i>
-                </div>
-                <div class="discount-heading">
-                    <h4>Get exclusive discounts and offers!</h4>
-                    <p>Join our ServiceBuddy Club to receive secret promotions and the best prices for top-rated services in your area.</p>
-                </div>
-            </div>
-            <div class="discount-right">
-                <button>Sign up</button>
-            </div>
+      <div class="discount">
+        <div class="discount-left">
+          <div class="discount-icon">
+            <i class="fa-solid fa-hand-holding-dollar"></i>
+          </div>
+          <div class="discount-heading">
+            <h4>Get exclusive discounts and offers!</h4>
+            <p>
+              Join our ServiceBuddy Club to receive secret promotions and the
+              best prices for top-rated services in your area.
+            </p>
+          </div>
         </div>
+        <div class="discount-right">
+          <button>Sign up</button>
+        </div>
+      </div>
     </div>
 
     <div class="footer-wrapper">
-        <div class="footer">
-            <div class="footer-left">
-                <div class="footer-logo">
-                    <h2>ServiceBudd</h2>
-                </div>
-                <div class="footer-p">
-                    <p>Your trusted service finder since 2002</p>
-                </div>
-            </div>
-            <div class="footer-right">
-                <p>Help</p>
-                <p>FAQs</p>
-                <p>Contact</p>
-                <p>How it works</p>
-            </div>
+      <div class="footer">
+        <div class="footer-left">
+          <div class="footer-logo">
+            <h2>ServiceBudd</h2>
+          </div>
+          <div class="footer-p">
+            <p>Your trusted service finder since 2002</p>
+          </div>
         </div>
+        <div class="footer-right">
+          <p>Help</p>
+          <p>FAQs</p>
+          <p>Contact</p>
+          <p>How it works</p>
+        </div>
+      </div>
     </div>
-</body>
+  </body>
 </html>

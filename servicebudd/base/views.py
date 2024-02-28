@@ -3,6 +3,7 @@ from django.contrib.auth.models import User, auth
 from django.contrib import messages
 from .models import ServiceProvider
 from .forms import ServiceProvidersNameFilterForm
+from .filters import ServiceProviderFilter
 
 # Create your views here.
 
@@ -50,7 +51,9 @@ def login(request):
     else:
         return render(request, 'login.html')
     
-def search(request, cat):
+def categories(request, cat):
+
+    service_filter = ServiceProviderFilter(request.GET, queryset=ServiceProvider.objects.all())
 
     service = ServiceProvider.objects.filter(category__iexact=cat)
 
@@ -58,8 +61,30 @@ def search(request, cat):
         'category': cat, 
         'form': ServiceProvidersNameFilterForm(),
         'service': service,
+        'service2': service_filter.qs,
+        'form2': service_filter.form
     }
 
+    return render(request, 'categories.html', context)
+
+def search(request, name):
+    name = request.GET.get('name')
+
+    spots = ServiceProvider.objects.all()
+    service_filter = ServiceProviderFilter(request.GET, queryset=ServiceProvider.objects.all())
+
+    if name:
+        spots = spots.filter(name__icontains=name)
+        service_filter = ServiceProviderFilter(request.GET, queryset=ServiceProvider.objects.none())
+    else:
+        spots = ServiceProvider.objects.none()
+
+    context = {
+        'name': name,
+        'spots': spots,
+        'service2': service_filter.qs,
+    }
+    
     return render(request, 'search.html', context)
 
 def result(request, cat, name):

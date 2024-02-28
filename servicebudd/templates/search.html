@@ -1,76 +1,21 @@
-{% load static %}
-
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://kit.fontawesome.com/78ec385741.js" crossorigin="anonymous"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="{% static './css/search.css' %}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Search</title>
-</head>
-<body>
-   <section class="nav-wrapper">
-       <div class="nav">
-            <div class="logo">
-                <h2>ServiceBudd.</h2>
-            </div>
-            <div class="search">
-                <form method="GET" action="{% url 'result' cat='category' name='name' %}">
-                    {{ form.as_p }}
-                    <input type="submit" value="submit" class="submit">
-                </form>
-            </div>
-        </div>
-        <hr>
-
-    </section>
-    
-    <div class="side-and-content">
-        <div class="side-bar">
-            <div class="filter">
-                <i class="fa-solid fa-sliders"></i>
-                <h3>Filters</h3>
-            </div>
-            <div class="categories">
-                <h3>Categories</h3>
-                <p>Leisure</p>
-                <p>Health</p>
-                <p>Home services</p>
-                <p>Transport</p>
-            </div>
-        </div>
-       
-        <div class="content">
-            <div class="content-header">
-                <h2>Here are some popular {{category}} spots we recommend</h2>
-            </div>
-            <div class="spot">
-                {% for item in service  %}
-                   <div class="spot-item">
-                        <div class="img">
-
-                        </div>
-                        <div class="spot-text">
-                            <div class="spot-name">
-                                <h3>{{item.name}}</h3>
-                            </div>
-                            <div class="spot-description">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque ullamcorper dolor in massa tinc molestie. Nullam odio lorem, rutrum elementum finibus et, molestie a elit.</p>
-                            </div>
-                            <div class="location-price">
-                                <p>{{item.location}}</p>
-                                <p>Starting from Kes.{{item.starting_price}}</p>
-                            </div>
-                        </div>
-                   </div>
-                {% endfor %}
-
-            </div>
-        </div>
-    </div>
-</body>
+  </head>
+  <body>
+    {% if name %}
+    <h1>Showing results for "{{ name }}"</h1>
+    {% elif location %}
+    <h1>Showing results for "{{ location }}"</h1>
+    {% else %}
+    <h1>Showing all results</h1>
+    {% endif %} {% load static %} {% for item in spots %}
+    <h1>{{item.name}}</h1>
+    {% endfor %} {% for item in service2 %}
+    <p>{{item.name}}</p>
+    {% endfor %}
+  </body>
 </html>
