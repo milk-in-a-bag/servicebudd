@@ -4,6 +4,8 @@ from django.contrib import messages
 from .models import ServiceProvider
 from .forms import ServiceProvidersNameFilterForm
 from .filters import ServiceProviderFilter
+from django.http import JsonResponse
+import json
 
 # Create your views here.
 
@@ -87,16 +89,7 @@ def search(request, name):
     
     return render(request, 'search.html', context)
 
-def result(request, cat, name):
-    name = request.GET.get('name')
-    spots = ServiceProvider.objects.all()
+def result(request):
+    
 
-    if name:
-        spots = spots.filter(name__icontains=name)
-
-    context = {
-        'spots': spots,
-        'category': cat,
-    }
-
-    return render(request, 'result.html', context)
+    return render(request, 'result.html')

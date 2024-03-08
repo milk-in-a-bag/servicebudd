@@ -59,13 +59,21 @@ h3 {
   margin-right: 10px;
 }
 
-.categories p {
+.categories,
+.location {
+  margin-bottom: 20px;
+}
+
+.categories p,
+.location p,
+.prices p {
   border: 1px solid #ffff;
   padding: 5px;
   border-radius: 5px;
   cursor: pointer;
   display: inline-block;
   margin: 5px 5px 0 0;
+  font-size: 12px;
 }
 
 .content {

@@ -2,14 +2,109 @@
 
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="{% static 'jquery-3.7.1.js' %}"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script
+      src="https://kit.fontawesome.com/78ec385741.js"
+      crossorigin="anonymous"
+    ></script>
+    <script src="{% static './js/categories.js' %}" defer></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static './css/categories.css' %}" />
     <title>Result</title>
-</head>
-<body>  
-    {% for item in spots %}
-    <h1>{{item.name}}</h1>
-    {% endfor %}
-</body>
+  </head>
+  <body>
+    <section class="nav-wrapper">
+      <div class="nav">
+        <div class="logo">
+          <h2>ServiceBudd.</h2>
+        </div>
+        <div class="search">
+          <form method="GET" action="{% url 'search' name='name' %}">
+            {{ form.as_p }}
+            <input type="submit" value="submit" class="submit" />
+          </form>
+        </div>
+      </div>
+      <hr />
+    </section>
+
+    <div class="side-and-content">
+      <div class="side-bar">
+        <div class="filter">
+          <i class="fa-solid fa-sliders"></i>
+          <h3>Filters</h3>
+        </div>
+        <div class="categories">
+          <h3>Categories</h3>
+          {% csrf_token %}
+          <p
+            class="cat"
+            data-category="dining"
+            class="cat"
+            id="categoryParagraph"
+          >
+            Food & drink
+          </p>
+          <p class="cat" data-category="leisure">Leisure</p>
+          <p class="cat" data-category="health">Health</p>
+          <p class="cat" data-category="home">Home services</p>
+          <p class="cat" data-category="transport">Transport</p>
+        </div>
+        <div class="location">
+          <h3>Location</h3>
+          <p>Kilimani</p>
+          <p>Rongai</p>
+          <p>Nairobi CBD</p>
+          <p>Karen</p>
+          <p>Langata</p>
+        </div>
+        <div class="prices">
+          <h3>Prices</h3>
+          <p>Affordable</p>
+          <p>Discounted</p>
+          <p>Premium</p>
+        </div>
+      </div>
+
+      <div class="content">
+        <div class="content-header">
+          <h2>Here are some popular {{category}} spots we recommend</h2>
+        </div>
+        <div class="spot">
+          {% for item in service %}
+          <div class="spot-item">
+            <div class="img"></div>
+            <div class="spot-text">
+              <div class="spot-name">
+                <h3>{{item.name}}</h3>
+              </div>
+              <div class="spot-description-1">
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+                  Pellentesque ullamcorper dolor in massa tinc molestie. Nullam
+                  odio lorem, rutrum elementum finibus et, molestie a elit.
+                </p>
+              </div>
+              <div class="location-price">
+                <p>{{item.location}}</p>
+                <p>Starting from Kes.{{item.starting_price}}</p>
+              </div>
+            </div>
+          </div>
+          {% endfor %}
+        </div>
+      </div>
+    </div>
+    <button>hello</button>
+    <p id="serverResponse"></p>
+  </body>
 </html>
