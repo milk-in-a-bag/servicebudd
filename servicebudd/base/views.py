@@ -1,12 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-from .models import ServiceProvider
+from .models import ServiceProvider, Filter
 from .forms import ServiceProvidersNameFilterForm
 from .filters import ServiceProviderFilter
 from django.http import JsonResponse
 import json
-
+from rest_framework import generics
+from .serializers import FilterSerializer
+import requests
 # Create your views here.
 
 def index(request):
@@ -89,7 +91,35 @@ def search(request, name):
     
     return render(request, 'search.html', context)
 
-def result(request):
-    
+class FilterList(generics.ListCreateAPIView):
+    serializer_class = FilterSerializer
 
-    return render(request, 'result.html')
+    def get_queryset(self):
+        queryset = Filter.objects.all()
+
+        return queryset
+
+
+class FilterDetail(generics.RetrieveUpdateDestroyAPIView):
+    serializer_class = FilterSerializer
+    queryset = Filter.objects.all()
+
+def result(request):
+    response = requests.get('http://127.0.0.1:8000/filter/47').json()
+
+    location = response.get('location')
+    starting_price = response.get('starting_price')
+    category = response.get('category')
+
+
+    queryset = ServiceProvider.objects.all()
+
+            # Add filters conditionally based on the provided parameters
+    if location:
+        queryset = queryset.filter(location=location)
+    if starting_price:
+        queryset = queryset.filter(starting_price=starting_price)
+    if category:
+        queryset = queryset.filter(category=category)
+
+    return render(request, 'result.html', {'queryset': queryset})

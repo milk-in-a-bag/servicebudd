@@ -1,94 +1,66 @@
-/*document.addEventListener("DOMContentLoaded", function () {
-  const categoryParagraph = document.getElementById("categoryParagraph");
+const categoryParagraphs = document.querySelectorAll(".cat");
+const locationParagraphs = document.querySelectorAll(".loc");
+const priceParagraphs = document.querySelectorAll(".pri");
 
-  categoryParagraph.addEventListener("click", function () {
+categoryParagraphs.forEach((categoryParagraph) => {
+  categoryParagraph.addEventListener("click", () => {
     const categoryData = categoryParagraph.getAttribute("data-category");
+    const data = {
+      category: categoryData,
+    };
 
-    // Make an AJAX request to your Django view
-    /*fetch("http://127.0.0.1:8000/result", {
-      method: "POST",
+    fetch("http://127.0.0.1:8000/filter/47", {
+      method: "PUT",
+      body: JSON.stringify(data),
       headers: {
         "Content-Type": "application/json",
         "X-CSRFToken": document.querySelector("[name=csrfmiddlewaretoken]")
           .value,
       },
-      body: JSON.stringify({ categoryData: categoryData }),
     })
-      .then((response) => response.json())
-      .then((data) => console.log("Response from Django:", data))
-      .catch((error) => console.error("Error:", error));
-  });
-});*/
-
-const data = {
-  title: "This is a title",
-  body: "This is a body",
-  userId: "This is a user id",
-};
-
-$(document).ready(() => {
-  $.ajax({
-    type: "POST",
-    url: "https://jsonplaceholder.typicode.com/posts",
-    data: JSON.stringify(data),
-    success: (data) => {
-      console.log(data);
-    },
-    error: (response) => {
-      alert("An error occured");
-    },
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   });
 });
 
-/*$(document).ready(function () {
-  $("button").click(function () {
-    $.post(
-      "http://127.0.0.1:8000/result",
-      {
-        name: "Donald Duck",
-        city: "Duckburg",
-        csrfmiddlewaretoken: $("input[name=csrfmiddlewaretoken]").val(),
+locationParagraphs.forEach((locationParagraph) => {
+  locationParagraph.addEventListener("click", () => {
+    const locationData = locationParagraph.getAttribute("data-location");
+    const data = {
+      location: locationData,
+    };
+
+    fetch("http://127.0.0.1:8000/filter/47", {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": document.querySelector("[name=csrfmiddlewaretoken]")
+          .value,
       },
-      function (data, status) {
-        alert("Data: " + data + "\nStatus: " + status);
-      }
-    );
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   });
-});*/
+});
 
-/*const xhr = new XMLHttpRequest();
+priceParagraphs.forEach((priceParagraph) => {
+  priceParagraph.addEventListener("click", () => {
+    const priceData = priceParagraph.getAttribute("data-price");
+    const data = {
+      starting_price: priceData,
+    };
 
-xhr.onload = function () {
-  const serverResponse = document.getElementById("serverResponse");
-  serverResponse.innerHTML = this.responseText;
-};
-
-xhr.open("POST", "http://127.0.0.1:8000/result");
-xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-const csrfToken = document.querySelector("[name=csrfmiddlewaretoken]").value;
-xhr.setRequestHeader("X-CSRFToken", csrfToken);
-xhr.send("name=dominic");*/
-
-/*fetch("https://jsonplaceholder.typicode.com/users")
-  .then(function (res) {
-    return res.json();
-  })
-  .then(function (data) {
-    console.log(data);
+    fetch("http://127.0.0.1:8000/filter/47", {
+      method: "PUT",
+      body: JSON.stringify(data),
+      headers: {
+        "Content-Type": "application/json",
+        "X-CSRFToken": document.querySelector("[name=csrfmiddlewaretoken]")
+          .value,
+      },
+    })
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   });
-
-const data = {
-  title: "This is a title",
-  body: "This is a body",
-  userId: "This is a user id",
-};
-
-fetch("https://jsonplaceholder.typicode.com/posts", {
-  method: "POST",
-  body: JSON.stringify(data),
-  headers: {
-    "Content-Type": "application/json",
-  },
-})
-  .then((res) => res.json())
-  .then((data) => console.log(data));*/
+});
