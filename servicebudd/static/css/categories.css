@@ -110,3 +110,7 @@ h3 {
   align-items: end;
   justify-content: space-between;
 }
+
+.clicked {
+  background-color: red;
+}

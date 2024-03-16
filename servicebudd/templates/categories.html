@@ -35,41 +35,6 @@
       <hr />
     </section>
 
-    <div class="side-and-content">
-      <div class="side-bar">
-        <div class="filter">
-          <i class="fa-solid fa-sliders"></i>
-          <h3>Filters</h3>
-        </div>
-        <div class="categories">
-          <h3>Categories</h3>
-          <form action="{% url 'result' %}" method="POST">
-            {% csrf_token %}
-            <p class="cat" data-category="dining" class="cat">
-              <a href="{% url 'result' %}">Food & drink</a>
-            </p>
-            <p class="cat" data-category="leisure">Leisure</p>
-            <p class="cat" data-category="health">Health</p>
-            <p class="cat" data-category="home">Home services</p>
-            <p class="cat" data-category="transport">Transport</p>
-          </form>
-        </div>
-        <div class="location">
-          <h3>Location</h3>
-          <p>Kilimani</p>
-          <p>Rongai</p>
-          <p>Nairobi CBD</p>
-          <p>Karen</p>
-          <p>Langata</p>
-        </div>
-        <div class="prices">
-          <h3>Prices</h3>
-          <p>Affordable</p>
-          <p>Discounted</p>
-          <p>Premium</p>
-        </div>
-      </div>
-
       <div class="content">
         <div class="content-header">
           <h2>Here are some popular {{category}} spots we recommend</h2>

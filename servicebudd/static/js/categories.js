@@ -4,6 +4,7 @@ const priceParagraphs = document.querySelectorAll(".pri");
 
 categoryParagraphs.forEach((categoryParagraph) => {
   categoryParagraph.addEventListener("click", () => {
+    categoryParagraph.classList.add("clicked");
     const categoryData = categoryParagraph.getAttribute("data-category");
     const data = {
       category: categoryData,
@@ -25,6 +26,7 @@ categoryParagraphs.forEach((categoryParagraph) => {
 
 locationParagraphs.forEach((locationParagraph) => {
   locationParagraph.addEventListener("click", () => {
+    locationParagraph.classList.add("clicked");
     const locationData = locationParagraph.getAttribute("data-location");
     const data = {
       location: locationData,
@@ -46,6 +48,7 @@ locationParagraphs.forEach((locationParagraph) => {
 
 priceParagraphs.forEach((priceParagraph) => {
   priceParagraph.addEventListener("click", () => {
+    priceParagraph.classList.add("clicked");
     const priceData = priceParagraph.getAttribute("data-price");
     const data = {
       starting_price: priceData,
