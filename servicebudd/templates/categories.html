@@ -9,13 +9,14 @@
       src="https://kit.fontawesome.com/78ec385741.js"
       crossorigin="anonymous"
     ></script>
+    <!--<script src="{% static './js/categories.js' %}" defer></script>-->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Poppins&display=swap"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="{% static './css/search.css' %}" />
+    <link rel="stylesheet" href="{% static './css/categories.css' %}" />
     <title>Categories</title>
   </head>
   <body>
@@ -33,28 +34,6 @@
       </div>
       <hr />
     </section>
-
-    <div class="side-and-content">
-      <div class="side-bar">
-        <div class="filter">
-          <i class="fa-solid fa-sliders"></i>
-          <h3>Filters</h3>
-        </div>
-        <div class="categories">
-          <h3>Categories</h3>
-          <a href="{% url 'categories' cat='dining' %}"><p>Food & drink</p></a>
-          <a href="{% url 'categories' cat='leisure' %}"><p>Leisure</p></a>
-          <a href="{% url 'categories' cat='health' %}"><p>Health</p></a>
-          <p>Home services</p>
-          <p>Transport</p>
-        </div>
-        <div class="">
-          <form method="GET" action="{% url 'search' name='name' %}">
-            {{ form2.as_p }}
-            <input type="submit" value="submit" class="submit" />
-          </form>
-        </div>
-      </div>
 
       <div class="content">
         <div class="content-header">

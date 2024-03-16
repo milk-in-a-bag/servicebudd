@@ -16,3 +16,11 @@ class ServiceProvider(models.Model):
 
     def __str__(self):
         return self.name
+    
+class Filter(models.Model):
+    category = models.CharField(max_length=100, null=True, blank= True)
+    location = models.CharField(max_length=100, null=True, blank= True)
+    starting_price = models.CharField(max_length=100, null=True, blank= True)
+
+    def __str__(self):
+        return f"{self.category} - {self.location} - {self.starting_price}"
