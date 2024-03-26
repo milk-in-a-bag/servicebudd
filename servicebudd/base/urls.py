@@ -11,4 +11,5 @@ urlpatterns = [
     path('search/<str:name>', views.search, name='search'),
     path('filter/', FilterList.as_view()),
     path('filter/<int:pk>', FilterDetail.as_view()),
+    path('spots/<str:name>', views.spots, name='spots'),
 ]

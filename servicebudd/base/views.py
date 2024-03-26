@@ -1,14 +1,14 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib import messages
-from .models import ServiceProvider, Filter
+from .models import ServiceProvider, Filter, Review
 from .forms import ServiceProvidersNameFilterForm
 from .filters import ServiceProviderFilter
-from django.http import JsonResponse
-import json
 from rest_framework import generics
 from .serializers import FilterSerializer
 import requests
+from django.shortcuts import get_object_or_404
+from django.contrib.auth.decorators import login_required
 # Create your views here.
 
 def index(request):
@@ -123,3 +123,26 @@ def result(request):
         queryset = queryset.filter(category=category)
 
     return render(request, 'result.html', {'queryset': queryset})
+
+@login_required
+def spots(request, name):
+    reviews = Review.objects.all()
+
+    if request.method == 'POST':
+        user = request.user
+        service_provider_name = name  # Assuming name is the service provider's name
+
+        # Retrieve the ServiceProvider instance corresponding to the name
+        service_provider = get_object_or_404(ServiceProvider, name=service_provider_name)
+
+        rating = request.POST['rating']
+        rating = request.POST['rating']
+        comment = request.POST['comment']
+        
+        review = Review.objects.create(user=user, service_provider=service_provider, rating=rating, comment=comment)
+        review.save()
+
+        return redirect('spots', name=name)
+
+    context = {'name': name, 'reviews': reviews}
+    return render(request, 'spots.html', context)

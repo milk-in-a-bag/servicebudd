@@ -1,0 +1,172 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: #212121;
+}
+p,
+h1,
+h2,
+h3 {
+  color: #ffff;
+}
+.nav,
+.side-bar {
+  background-color: #262626;
+}
+
+.nav {
+  padding: 0 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search {
+  margin: 0 auto;
+  display: flex;
+}
+
+/*card styles*/
+
+.big-card {
+  width: 90%;
+  background-color: #262626;
+  margin: 20px auto;
+  border-radius: 10px;
+}
+
+.up {
+  display: flex;
+}
+
+.profile {
+  display: flex;
+  margin-right: 10px;
+}
+
+.img {
+  background-image: url("../img/anastase-maragos-9dzWZQWZMdE-unsplash.jpg");
+  height: 400px;
+  width: 600px;
+  background-size: cover;
+  background-position: center;
+  margin: 50px;
+  border-radius: 5px;
+}
+
+.reviews {
+  width: 40%;
+  margin: 50px 50px 50px 0;
+}
+
+.boo {
+  background-color: #212121;
+  padding: 25px;
+  border-radius: 5px;
+  height: 65%;
+}
+
+.buttons {
+  margin-top: 20px;
+}
+
+.up-btn button,
+.down-btn button {
+  width: 100%;
+  cursor: pointer;
+  padding: 10px;
+  margin-bottom: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.rev {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 30px;
+}
+
+.profile i {
+  font-size: 40px;
+  margin-right: 10px;
+  color: #ffff;
+}
+
+.profile p,
+.latest-reviews p {
+  font-size: 14px;
+}
+
+.icons i {
+  position: relative;
+  bottom: 60px;
+  left: 550px;
+  color: #ffff;
+  font-size: 20px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.desc p {
+  margin: 0 50px;
+  position: relative;
+  bottom: 50px;
+}
+
+.form {
+  margin-left: 50px;
+}
+
+.form input,
+.form textarea {
+  outline: none;
+  border: none;
+  display: block;
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.form-buttons {
+  display: flex;
+  align-items: center;
+}
+
+.submit {
+  margin-right: 30px;
+}
+
+.cancel {
+  border: none;
+  height: fit-content;
+  padding: 10px;
+  margin-top: 20px;
+  border-radius: 5px;
+}
+
+.other-title p {
+  margin: 20px 0 0 50px;
+}
+
+.other-suggestions {
+  height: 200px;
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+  margin: 0 50px;
+}
+
+.other-img {
+  background-image: url("../img/anton-SnKfmC1I9fU-unsplash.jpg");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  border-radius: 5px;
+}

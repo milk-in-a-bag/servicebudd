@@ -1,0 +1,112 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script
+      src="https://kit.fontawesome.com/78ec385741.js"
+      crossorigin="anonymous"
+    ></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="{% static './css/spots.css' %}" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div class="nav">
+      <div class="logo">
+        <h2>ServiceBudd.</h2>
+      </div>
+      <div class="search">
+        <form method="GET" action="{% url 'search' name='name' %}">
+          {{ form.as_p }}
+          <input type="submit" value="submit" class="submit" />
+        </form>
+      </div>
+    </div>
+    <hr />
+    <div class="big-card">
+      <div class="up">
+        <div class="img"></div>
+        <div class="reviews">
+          <div class="boo">
+            {% for item in reviews %}
+            <div class="rev-wrapper">
+              <div class="rev">
+                <div class="profile">
+                  <i class="fa-solid fa-circle-user"></i>
+                  <p>{{item.user}}</p>
+                </div>
+                <div class="latest-reviews">
+                  <p>{{item.comment}}</p>
+                </div>
+              </div>
+            </div>
+            {% endfor %}
+          </div>
+          <div class="buttons">
+            <div class="up-btn">
+              <button>Book this service</button>
+            </div>
+            <div class="down-btn">
+              <button>Add to favorites</button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="down">
+        <div class="down-left">
+          <div class="icons">
+            <i class="fa-solid fa-folder-plus"></i>
+            <i class="fa-solid fa-share-nodes"></i>
+            <i class="fa-brands fa-pinterest"></i>
+          </div>
+          <div class="desc">
+            <p>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit. Debitis,
+              rerum similique quaerat perferendis atque et dolore commodi nobis
+              facere reprehenderit?
+            </p>
+          </div>
+        </div>
+
+        <div class="form">
+          <form action="{{name}}" method="POST">
+            {% csrf_token %}
+            <p>Add a review</p>
+            <input type="text" placeholder="Rate from 1-5" name="rating" />
+            <textarea
+              name="comment"
+              id=""
+              cols="90"
+              rows="10"
+              placeholder="Leave your review"
+            ></textarea>
+            <div class="form-buttons">
+              <input type="submit" class="submit" />
+              <button class="cancel">Cancel</button>
+            </div>
+          </form>
+        </div>
+        <div class="other">
+          <div class="other-title">
+            <p>You might also like</p>
+          </div>
+          <div class="other-suggestions">
+            <div class="other-img"></div>
+            <div class="other-img"></div>
+            <div class="other-img"></div>
+            <div class="other-img"></div>
+            <div class="other-img"></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
